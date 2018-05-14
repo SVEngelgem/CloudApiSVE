@@ -5,8 +5,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { SearchComponent } from './search/search.component';
+import { HttpClientModule } from '@angular/common/http';
 //routing
 import { RouterModule } from "@angular/router";
+//services
+import{ CountryService } from './services/country.service'
 
 
 @NgModule({
@@ -25,10 +28,13 @@ import { RouterModule } from "@angular/router";
       { path: 'search', component: SearchComponent},
       //de routes hier plaatsen per module component
       { path: '', redirectTo: 'home', pathMatch: 'full'}
-    ], { useHash: true })
+    ], { useHash: true }),
+    HttpClientModule,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [
+    CountryService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

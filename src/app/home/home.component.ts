@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CountryService, RootObject } from '../services/country.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  country: RootObject;
+
+  constructor(private _service: CountryService) { }
 
   ngOnInit() {
+    this._service.getICountry("belgium")
+      .subscribe(result => this.country = result);
+      
   }
 
 }
