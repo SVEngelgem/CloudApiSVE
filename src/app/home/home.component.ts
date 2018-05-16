@@ -8,14 +8,20 @@ import { CountryService, RootObject } from '../services/country.service';
 })
 export class HomeComponent implements OnInit {
 
-  country: RootObject;
+  countrys: RootObject;
 
   constructor(private _service: CountryService) { }
 
+  getCountrys(): void{
+    this._service.getICountrys()
+      .subscribe(
+        result => this.countrys = result,
+        error => console.log("Error :: " + error)
+
+      )
+  }
   ngOnInit() {
-    this._service.getICountry("belgium")
-      .subscribe(result => this.country = result);
-      
+    this.getCountrys();
   }
 
 }

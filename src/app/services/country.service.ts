@@ -1,20 +1,29 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { Http , Response} from "@angular/http";
 import { Observable } from "rxjs/Observable";
+import "rxjs/Rx";
+import { log } from 'util';
 
 @Injectable()
 export class CountryService {
+    private _countrysURL = "https://restcountries.eu/rest/v2/all";
+ 
+    constructor(private http: Http) {
+    }
 
-  constructor(private _http: HttpClient) { }
-
-  getICountrys(): Observable<RootObject>{
-    return this._http.get<RootObject>("https://restcountries.eu/rest/v2/all")
-  }
-  getICountry(input:String): Observable<RootObject>{
-    return this._http.get<RootObject>("https://restcountries.eu/rest/v2/name/"+input)
-  }
-
-
+    getICountrys(): Observable<RootObject> {
+        return this.http
+            .get(this._countrysURL)
+            .map((response: Response) => {
+                var result = <RootObject>response.json();
+                console.log(result);
+                return result;
+            })
+            .catch(this.handleError);
+     }
+     private handleError(error: Response) {
+        return Observable.throw(error.statusText);
+    }
 }
   export interface Currency {
       code: string;
