@@ -10,12 +10,10 @@
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let country of countrys.data">
-                <ng-template>
+              <tr *ngFor="let country of countrys">
                   <td>{{country.name}}</td>
                   <td>{{country.capital}}</td>
                   <td>{{country.population}}</td>
-                </template>
               </tr>
           </tbody>
       </table>
