@@ -2,22 +2,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,  NO_ERRORS_SCHEMA  } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { NavComponent } from './nav/nav.component';
-import { SearchComponent } from './search/search.component';
 import { HttpModule } from '@angular/http';
 //routing
 import { RouterModule } from "@angular/router";
 //services
-import{ CountryService } from './services/country.service'
-
+import{ CountryService } from './services/country.service';
+import { ListAllComponent } from './list-all/list-all.component';
+//paging
+import { NgxPaginationModule } from "ngx-pagination";
+//components
+import { SearchinputComponent } from './searchinput/searchinput.component';
+import { SearchComponent } from './search/search.component';
+import { HomeComponent } from './home/home.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavComponent,
-    SearchComponent
+    SearchComponent,
+    ListAllComponent,
+    SearchinputComponent
 
   ],
   imports: [
@@ -30,6 +36,7 @@ import{ CountryService } from './services/country.service'
       { path: '', redirectTo: 'home', pathMatch: 'full'}
     ], { useHash: true }),
     HttpModule,
+    NgxPaginationModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
