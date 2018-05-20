@@ -9,7 +9,10 @@ import { CountryService, RootObject } from '../services/country.service';
 })
 export class ListAllComponent implements OnInit {
   countrys: RootObject;
-
+  CapitalisChecked: boolean;
+  PopulationisChecked: boolean;
+  RegionisChecked: boolean;
+  SubRegionisChecked: boolean;
   constructor(private _service: CountryService) { }
 
   getCountrys(): void{
@@ -23,4 +26,29 @@ export class ListAllComponent implements OnInit {
   ngOnInit() {
     this.getCountrys();
   }
+  
+  CapitalCheck(event:any){
+    this.CapitalisChecked = !this.CapitalisChecked;
+    console.log(event);
+    console.log(this.CapitalisChecked);
+    return this.CapitalisChecked;
+    }
+  PopulationCheck(event:any){
+    this.PopulationisChecked = !this.PopulationisChecked;
+    console.log(event);
+    console.log(this.PopulationisChecked);
+    return this.PopulationisChecked;
+    }
+  RegionCheck(event:any){
+    this.RegionisChecked = !this.RegionisChecked;
+    console.log(event);
+    console.log(this.RegionisChecked);
+    return this.RegionisChecked;
+    }
+  SubRegionCheck(event:any){
+    this.SubRegionisChecked = !this.SubRegionisChecked;
+    console.log(event);
+    console.log(this.SubRegionisChecked);
+    return this.SubRegionisChecked;
+    }
 }

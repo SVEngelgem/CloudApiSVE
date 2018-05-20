@@ -11,7 +11,6 @@ import { ListAllComponent } from './list-all/list-all.component';
 //paging
 import { NgxPaginationModule } from "ngx-pagination";
 //components
-import { SearchinputComponent } from './searchinput/searchinput.component';
 import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
@@ -22,9 +21,7 @@ import { NavComponent } from './nav/nav.component';
     HomeComponent,
     NavComponent,
     SearchComponent,
-    ListAllComponent,
-    SearchinputComponent
-
+    ListAllComponent
   ],
   imports: [
     BrowserModule,
