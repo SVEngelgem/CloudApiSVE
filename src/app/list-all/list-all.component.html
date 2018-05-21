@@ -1,48 +1,22 @@
 <div class="row">
-    <div class="row">
+    <div class="col-3">
         <div class="card">
             <div class="card-header">Search</div>
             <div class="card-block">
-                <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2" #searchinput>
                 <div class="input-group-append">
-                <button class="btn btn-success" type="button">Search</button>
-                <div class="btn-group">
-                    <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Basic dropdown</button>
-                
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
+                <button class="btn btn-success" type="button" (click)="ActivateSearch(searchinput.value)">Search</button>
                 </div>
             </div>
-          </div>
-          <div class="card">
-              <div class="card-header">Show filter</div>
-              <div class="card-block">
-                  <div class="input-group-text">
-                      <input type="checkbox" (change)="CapitalCheck(isChecked?'A':'B')" aria-label="Checkbox for following text input">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Hoofdstad</span>
-                  </div>
-                  <div class="input-group-text">
-                    <input type="checkbox"  (change)="PopulationCheck(isChecked?'A':'B')" aria-label="Checkbox for following text input">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Populatie</span>
-                  </div>
-                  <div class="input-group-text">
-                    <input type="checkbox"  (change)="RegionCheck(isChecked?'A':'B')" aria-label="Checkbox for following text input">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Regio</span>
-                  </div>
-                  <div class="input-group-text">
-                    <input type="checkbox"  (change)="SubRegionCheck(isChecked?'A':'B')" aria-label="Checkbox for following text input">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Subregio</span>
-                  </div>
-              </div>
-            </div>
+        </div>
     </div>
-    <div class=col>
-      <div class="card" *ngIf="countrys">
+    <div class="col -8">
+        <h1>Country's of the world Database</h1>
+        <p>On this simple website you're able to get some basic information about the plethera of country's in the world </p>
+    </div>
+</div>       
+<div class="row">
+    <div class="card" *ngIf="countrys">
       <div class="card-header">HomePage</div>
       <div class="card-block">
           <table class="table table-hover">
@@ -57,17 +31,16 @@
               </thead>
               <tbody>
                   <tr *ngFor="let country of countrys | paginate: { itemsPerPage: 10 , currentPage: p}">
-                      <td  >{{country.name}}</td>
-                      <td *ngIf="CapitalisChecked">{{country.capital}}</td>
-                      <td *ngIf="PopulationisChecked">{{country.population}}</td>
-                      <td *ngIf="RegionisChecked">{{country.region}}</td>
-                      <td *ngIf="SubRegionisChecked">{{country.subregion}}</td>
+                      <td >{{country.name}}</td>
+                      <td >{{country.capital}}</td>
+                      <td >{{country.population}}</td>
+                      <td >{{country.region}}</td>
+                      <td >{{country.subregion}}</td>
                   </tr>
               </tbody>
               <pagination-controls class="myPagination" (pageChange)="p = $event "></pagination-controls>
           </table>
       </div>
     </div>
-    </div>
-    
 </div>
+

@@ -6,14 +6,27 @@ import { log } from 'util';
 
 @Injectable()
 export class CountryService {
-    private _countrysURL = "https://restcountries.eu/rest/v2/all";
+    private _countrysURL = "https://restcountries.eu/rest/v2/";
  
     constructor(private http: Http) {
     }
 
     getICountrys(): Observable<RootObject> {
         return this.http
-            .get(this._countrysURL)
+            .get(this._countrysURL+"all")
+            .map((response: Response) => {
+                var result = <RootObject>response.json();
+                console.log(result);
+                return result;
+            })
+            .catch(this.handleError);
+     }
+     private handleErrorall(error: Response) {
+        return Observable.throw(error.statusText);
+    }
+    SearchICountrys(name:String): Observable<RootObject> {
+        return this.http
+            .get(this._countrysURL+"name/"+name)
             .map((response: Response) => {
                 var result = <RootObject>response.json();
                 console.log(result);
