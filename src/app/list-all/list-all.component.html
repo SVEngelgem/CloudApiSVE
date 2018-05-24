@@ -23,14 +23,14 @@
               <thead>
                   <tr>
                       <th>Land</th>
-                      <th *ngIf="CapitalisChecked">Hoofdstad</th>
-                      <th *ngIf="PopulationisChecked">Populatie</th>
-                      <th *ngIf="RegionisChecked">Regio</th>
-                      <th *ngIf="SubRegionisChecked">subregio</th>
+                      <th >Hoofdstad</th>
+                      <th >Populatie</th>
+                      <th >Regio</th>
+                      <th >subregio</th>
                   </tr>
               </thead>
-              <tbody>
-                  <tr *ngFor="let country of countrys | paginate: { itemsPerPage: 10 , currentPage: p}">
+              <tbody >
+                  <tr (click)="DetailedSearch(country.name)" *ngFor="let country of countrys | paginate: { itemsPerPage: 10 , currentPage: p}">
                       <td >{{country.name}}</td>
                       <td >{{country.capital}}</td>
                       <td >{{country.population}}</td>

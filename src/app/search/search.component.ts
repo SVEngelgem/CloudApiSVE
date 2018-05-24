@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService, RootObject } from '../services/country.service';
 import { } from "../sharedservice/sharedservice.service"
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params, NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
 @Component({
@@ -12,12 +12,29 @@ import 'rxjs/add/operator/filter';
 export class SearchComponent implements OnInit {
   countrys: RootObject;
   Searched: Boolean;
-  CapitalisChecked: boolean;
-  PopulationisChecked: boolean;
-  RegionisChecked: boolean;
-  SubRegionisChecked: boolean;
+  CapitalisChecked: boolean = true;
+  PopulationisChecked: boolean = true;
+  RegionisChecked: boolean = true;
+  SubRegionisChecked: boolean = true;
   searchvalue: string;
-  constructor(private _service: CountryService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private _service: CountryService, private route: ActivatedRoute, private router: Router) { 
+    //herladen van de huidige pagina om de parameters van de url te kunnen verwerken
+    //oplossing van dit probleem gevonden van https://github.com/angular/angular/issues/13831
+         // override the route reuse strategy
+         this.router.routeReuseStrategy.shouldReuseRoute = function(){
+          return false;
+       }
+  
+       this.router.events.subscribe((evt) => {
+          if (evt instanceof NavigationEnd) {
+             // trick the Router into believing it's last link wasn't previously loaded
+             this.router.navigated = false;
+             // if you need to scroll back to top, here is the right place
+             window.scrollTo(0, 0);
+          }
+      });
+  
+  }
   
 
   getCountrys(name: String): void{
@@ -31,24 +48,22 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.GetSearchParam();
 
-    //in oefening plaatsen
-
-    //        this.getCountrys(this.searchvalue);
-    
   }
   ActivateSearch(searchentry:string){
     this.router.navigate(["/search"], {queryParams:{searchinput: searchentry}});
   }
+  DetailedSearch(detailentry:any){
+    console.log(detailentry);
+    this.router.navigate(["/detail"], {queryParams:{searchinput: detailentry}});
+  }
   GetSearchParam(){
-    this.route.queryParams
-    .filter(params => params.order)
-    .subscribe(params => {
-      console.log(params); // {order: "popular"}
-
-      this.searchvalue = params.order;
-      console.log(this.searchvalue); // popular
-    });
-      
+    this.route.queryParams.subscribe(
+      params => { 
+        let search = params["searchinput"];
+        this.searchvalue = search;
+        console.log(this.searchvalue); 
+      });
+      this.getCountrys(this.searchvalue);
   }
   
   CapitalCheck(event:any){

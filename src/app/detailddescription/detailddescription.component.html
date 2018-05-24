@@ -1,0 +1,85 @@
+<div class="container" *ngFor="let country of countrys" >
+  <div class="row">
+    <div class="row-2">
+      <div class="card">
+        <div class="card-header">Search</div>
+          <div class="card-block">
+            <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="basic-addon2" #searchinput>
+              <div class="input-group-append">
+                <button class="btn btn-success" type="button" (click)="ActivateSearch(searchinput.value)">Search</button>
+              </div>
+          </div>
+      </div>    
+    </div>
+
+    <div class="row-6">
+        <div class="col">
+          <div class="card">
+            <h1>{{country.name}}</h1>
+            <h5>{{country.nativeName}}</h5>
+          </div>
+        </div>
+      <div class="col">
+      <div class="card">
+        <div class="card-header">Locatie</div>
+        <div class="card-block">
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="4">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        </div>
+      </div>
+    </div>
+    </div> 
+  </div>
+  <div class="row" >
+    <div class="row-6">
+      <div class="card">
+        <div class="card-header">Trivia</div>
+        <div class="card-block">
+          <ul class="list-group" >
+            <li class="list-group-item">
+             Name:
+              <strong>{{country.name}}</strong>
+            </li>
+            <li class="list-group-item">
+             Capital:
+              <strong>{{country.capital}}</strong>
+            </li>
+            <li class="list-group-item">
+            Languages
+              <strong >{{country.languages[0].name}}</strong><!-- navragen hoe meerdere weer te geven-->
+            </li>
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row-6">
+        <div class="card">
+          <div class="card-header">Population</div>
+          <div class="card-block">
+            <ul class="list-group">
+              <li class="list-group-item">
+               Population:
+                <strong>{{country.population | number:'3.0-1' }}</strong>
+              </li>
+              <li class="list-group-item">
+               Demonym:
+                <strong>{{country.demonym}}</strong>
+              </li>
+              <li class="list-group-item">
+              Region:
+                <strong>{{country.region}}</strong>
+              </li>
+              <li class="list-group-item">
+              Subregion:
+                <strong>{{country.subregion}}</strong>
+              </li>
+  
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div> 
+</div>

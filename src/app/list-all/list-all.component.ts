@@ -31,4 +31,8 @@ export class ListAllComponent implements OnInit {
     console.log(searchentry);
     this.router.navigate(["/search"], {queryParams:{searchinput: searchentry}});
   }
+  DetailedSearch(detailentry:any){
+    console.log(detailentry);
+    this.router.navigate(["/detail"], {queryParams:{searchinput: detailentry}});
+  }
 }
