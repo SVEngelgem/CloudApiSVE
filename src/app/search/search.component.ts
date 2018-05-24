@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService, RootObject } from '../services/country.service';
 import { } from "../sharedservice/sharedservice.service"
+import { ActivatedRoute, Router } from '@angular/router';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-search',
@@ -14,10 +16,12 @@ export class SearchComponent implements OnInit {
   PopulationisChecked: boolean;
   RegionisChecked: boolean;
   SubRegionisChecked: boolean;
-  constructor(private _service: CountryService) { }
+  searchvalue: string;
+  constructor(private _service: CountryService, private route: ActivatedRoute, private router: Router) { }
+  
 
-  getCountrys(): void{
-    this._service.getICountrys()
+  getCountrys(name: String): void{
+    this._service.SearchICountrys(name)
       .subscribe(
         result => this.countrys = result,
         error => console.log("Error :: " + error)
@@ -25,10 +29,26 @@ export class SearchComponent implements OnInit {
       )
   }
   ngOnInit() {
-    this.getCountrys();
+    this.GetSearchParam();
+
+    //in oefening plaatsen
+
+    //        this.getCountrys(this.searchvalue);
+    
   }
   ActivateSearch(searchentry:string){
-    console.log(searchentry);
+    this.router.navigate(["/search"], {queryParams:{searchinput: searchentry}});
+  }
+  GetSearchParam(){
+    this.route.queryParams
+    .filter(params => params.order)
+    .subscribe(params => {
+      console.log(params); // {order: "popular"}
+
+      this.searchvalue = params.order;
+      console.log(this.searchvalue); // popular
+    });
+      
   }
   
   CapitalCheck(event:any){

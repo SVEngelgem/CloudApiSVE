@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryService, RootObject } from '../services/country.service';
 import { } from "../sharedservice/sharedservice.service"
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,8 @@ export class ListAllComponent implements OnInit {
   countrys: RootObject;
   Searched: Boolean;
   
-  constructor(private _service: CountryService) { }
+  constructor(private _service: CountryService, private router: Router) { }
+
 
   getCountrys(): void{
     this._service.getICountrys()
@@ -27,5 +29,6 @@ export class ListAllComponent implements OnInit {
   }
   ActivateSearch(searchentry:string){
     console.log(searchentry);
+    this.router.navigate(["/search"], {queryParams:{searchinput: searchentry}});
   }
 }
