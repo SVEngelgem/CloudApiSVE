@@ -28,7 +28,7 @@ namespace aspcore
         // Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<LibraryContext>(
+            services.AddDbContext<ModelContext>(
                 options => options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")
                 )
@@ -39,7 +39,7 @@ namespace aspcore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, LibraryContext libContext)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ModelContext libContext)
         {
             if (env.IsDevelopment())
             {

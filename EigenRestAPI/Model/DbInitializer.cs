@@ -5,47 +5,48 @@ namespace Model
 {
     public class DBIntitializer
     {
-        public static void Initialize(LibraryContext context)
+        public static void Initialize(ModelContext context)
         {
             //Create the db if not yet exists
             context.Database.EnsureCreated();
             
             //Are there already books present ?
-            if (!context.Books.Any())
+            if (!context.AirsoftModel.Any())
             {
-                var suzanne = new Author()
+                var TokyoMarui = new Brand()
                 {
-                    Name = "Collins",
-                    FirstName = "Suzanne"
+                    Name = "Tokyo Marui",
+                    specialization = "gas pistols"
                 };
-                context.Authors.Add(suzanne);
-                var george = new Author()
+                context.Brand.Add(TokyoMarui);
+                var GandP = new Brand()
                 {
                     Name = "Orwell",
-                    FirstName = "George"
+                    specialization="aeg"
                 };
-                context.Authors.Add(george);
+                context.Brand.Add(GandP);
 
                 //Create new book
-                var bk = new Book()
+                var mk23 = new AirsoftModel()
                 {
-                    Title = "The Hunger Games",
-                    ISBN = "0439023483",
-                    Pages = 374,
-                    Genre = "Adventure",
-                    Author = suzanne
+                    name = "mk23",
+                    type ="pistol",
+                    operatingsystem="nbb",
+                    propulsion = "gas",
+                    Brand = TokyoMarui
+
                 };
                 //Add the book to the collection of books
-                context.Books.Add(bk);
-                bk = new Book()
+                context.AirsoftModel.Add(mk23);
+                var ca870 = new AirsoftModel()
                 {
-                    Title = "Animal Farm",
-                    ISBN = "0452284244",
-                    Pages = 122,
-                    Genre = "Mystery",
-                    Author = george
+                    name = "m4",
+                    type ="shotgun",
+                    operatingsystem="spring",
+                    propulsion = "spring",
+                    Brand = GandP
                 };
-                context.Books.Add(bk);
+                context.AirsoftModel.Add(ca870);
                 //Save all the changes to the DB
                 context.SaveChanges();
             }
