@@ -33,7 +33,7 @@
                   <tr (click)="DetailedSearch(country.name)" *ngFor="let country of countrys | paginate: { itemsPerPage: 10 , currentPage: p}">
                       <td >{{country.name}}</td>
                       <td >{{country.capital}}</td>
-                      <td >{{country.population}}</td>
+                      <td >{{country.population | number:'3.0-1'}}</td>
                       <td >{{country.region}}</td>
                       <td >{{country.subregion}}</td>
                   </tr>
@@ -43,4 +43,5 @@
       </div>
     </div>
 </div>
+
 

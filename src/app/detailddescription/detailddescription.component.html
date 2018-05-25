@@ -16,7 +16,7 @@
         <div class="col">
           <div class="card">
             <h1>{{country.name}}</h1>
-            <h5>{{country.nativeName}}</h5>
+            <h5><img class="flag" src={{country.flag}}>{{country.nativeName}}</h5>
           </div>
         </div>
       <div class="col">
@@ -47,7 +47,7 @@
             </li>
             <li class="list-group-item">
             Languages
-              <strong >{{country.languages[0].name}}</strong><!-- navragen hoe meerdere weer te geven-->
+              <ul *ngFor="let Languages of country.languages"><strong >{{Languages.name}}</strong></ul><!-- navragen hoe meerdere weer te geven-->
             </li>
 
 
@@ -55,7 +55,7 @@
         </div>
       </div>
     </div>
-    <div class="row-6">
+    <div class="row">
         <div class="card">
           <div class="card-header">Population</div>
           <div class="card-block">
@@ -83,3 +83,4 @@
       </div>
   </div> 
 </div>
+
