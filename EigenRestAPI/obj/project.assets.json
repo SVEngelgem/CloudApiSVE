@@ -12541,22 +12541,24 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\stijn\\Documents\\ap-ict\\3dejaar\\CloudApi\\CloudApiSVE\\EigenRestAPI\\aspcore.csproj",
+      "projectUniqueName": "d:\\ap-ict\\3dejaar\\CloudApi\\CloudApiSVE\\EigenRestAPI\\aspcore.csproj",
       "projectName": "aspcore",
-      "projectPath": "C:\\Users\\stijn\\Documents\\ap-ict\\3dejaar\\CloudApi\\CloudApiSVE\\EigenRestAPI\\aspcore.csproj",
+      "projectPath": "d:\\ap-ict\\3dejaar\\CloudApi\\CloudApiSVE\\EigenRestAPI\\aspcore.csproj",
       "packagesPath": "C:\\Users\\stijn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\stijn\\Documents\\ap-ict\\3dejaar\\CloudApi\\CloudApiSVE\\EigenRestAPI\\obj\\",
+      "outputPath": "d:\\ap-ict\\3dejaar\\CloudApi\\CloudApiSVE\\EigenRestAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\stijn\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\stijn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

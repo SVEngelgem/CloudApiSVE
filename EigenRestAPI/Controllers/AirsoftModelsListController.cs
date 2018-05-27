@@ -4,20 +4,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Model;
 
-[Route("api/v1/Model")]
-public class AirsoftModelListController : Controller
+[Route("api/v1/Models")]
+public class AirsoftModelsListController : Controller
 {
     private readonly ModelContext context;
 
-    public AirsoftModelListController(ModelContext context)
+    public AirsoftModelsListController(ModelContext context)
     {
         this.context = context;
     }
-
-    [HttpGet]         // api/v1/books
+    [HttpGet]         // api/v1/Models
     public List<AirsoftModel> GetAllAirsoftModels(string name, string type, string operationsystem, string propulsion, int? page, string sort, int length= 2, string dir = "asc")
     {
-        IQueryable<AirsoftModel> query = context.AirsoftModel;
+        IQueryable<AirsoftModel> query = context.AirsoftModels;
 
         if (!string.IsNullOrWhiteSpace(name))
             query = query.Where(d => d.name == name);
@@ -49,6 +48,12 @@ public class AirsoftModelListController : Controller
                     else if (dir == "desc")
                         query = query.OrderByDescending(d => d.propulsion);
                     break;
+                case "operatingsystem":
+                    if (dir == "asc")
+                        query = query.OrderBy(d => d.operatingsystem);
+                    else if (dir == "desc")
+                        query = query.OrderByDescending(d => d.operatingsystem);
+                    break;
             }
         }
 
@@ -59,47 +64,47 @@ public class AirsoftModelListController : Controller
         return query.ToList();
     }
 
-    [Route("{id}")]   // api/v1/books/2
+    [Route("{id}")]   // api/v1/Models/2
     [HttpGet]
-    public IActionResult GetAirsoftModel(int id)
+    public IActionResult GetAirsoftModels(int id)
     {
-        var book = context.AirsoftModel
+        var Model = context.AirsoftModels
                     .Include(d => d.Brand)
                     .SingleOrDefault(d => d.Id == id);
 
-        if (book == null)
+        if (Model == null)
             return NotFound();
 
-        return Ok(book);
+        return Ok(Model);
     }
 
-    [Route("{id}/author")]   // api/v1/books/2
+    [Route("{id}/Brand")]   // api/v1/Models/2
     [HttpGet]
-    public IActionResult GetBrandFromModel(int id)
+    public IActionResult GetBrandFromModels(int id)
     {
-        var book = context.AirsoftModel
+        var Model = context.AirsoftModels
                     .Include(d => d.Brand)
                     .SingleOrDefault(d => d.Id == id);
-        if (book == null)
+        if (Model == null)
             return NotFound();
 
-        return Ok(book.Brand);
+        return Ok(Model.Brand);
     }
 
     [HttpPost]
-    public IActionResult CreateAirsoftModel([FromBody] AirsoftModel newAirsoftModel)
+    public IActionResult CreateAirsoftModels([FromBody] AirsoftModel newAirsoftModel)
     {
         //Book toevoegen in de databank, Id wordt dan ook toegekend
-        context.AirsoftModel.Add(newAirsoftModel);
+        context.AirsoftModels.Add(newAirsoftModel);
         context.SaveChanges();
         // Stuur een result 201 met het boek als content
         return Created("", newAirsoftModel);
     }
 
     [HttpPut]
-    public IActionResult UpdateAirsoftModel([FromBody] AirsoftModel UpdateAirsoftModel)
+    public IActionResult UpdateAirsoftModels([FromBody] AirsoftModel UpdateAirsoftModel)
     {
-        var orgAirsoftmodel = context.AirsoftModel.Find(UpdateAirsoftModel.Id);
+        var orgAirsoftmodel = context.AirsoftModels.Find(UpdateAirsoftModel.Id);
         if (orgAirsoftmodel == null)
             return NotFound();
 
@@ -114,14 +119,14 @@ public class AirsoftModelListController : Controller
 
     [Route("{id}")]
     [HttpDelete]
-    public IActionResult DeleteModel(int id)
+    public IActionResult DeleteModels(int id)
     {
-        var model = context.AirsoftModel.Find(id);
+        var model = context.AirsoftModels.Find(id);
         if (model == null)
             return NotFound();
 
         //book verwijderen ..
-        context.AirsoftModel.Remove(model);
+        context.AirsoftModels.Remove(model);
         context.SaveChanges();
         //Standaard response 204 bij een gelukte delete
         return NoContent();

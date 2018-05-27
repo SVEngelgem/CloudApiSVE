@@ -7,8 +7,8 @@ namespace Model{
         public ModelContext (DbContextOptions<ModelContext> options): base(options)
         {
         }
-        public DbSet<AirsoftModel> AirsoftModel { get; set; }
-        public DbSet<Brand> Brand { get; set; }
+        public DbSet<AirsoftModel> AirsoftModels { get; set; }
+        public DbSet<Brand> Brands { get; set; }
     }
 }
 

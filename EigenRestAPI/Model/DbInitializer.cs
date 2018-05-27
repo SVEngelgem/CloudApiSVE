@@ -11,20 +11,20 @@ namespace Model
             context.Database.EnsureCreated();
             
             //Are there already books present ?
-            if (!context.AirsoftModel.Any())
+            if (!context.AirsoftModels.Any())
             {
                 var TokyoMarui = new Brand()
                 {
                     Name = "Tokyo Marui",
                     specialization = "gas pistols"
                 };
-                context.Brand.Add(TokyoMarui);
+                context.Brands.Add(TokyoMarui);
                 var GandP = new Brand()
                 {
-                    Name = "Orwell",
+                    Name = "GandP",
                     specialization="aeg"
                 };
-                context.Brand.Add(GandP);
+                context.Brands.Add(GandP);
 
                 //Create new book
                 var mk23 = new AirsoftModel()
@@ -37,16 +37,16 @@ namespace Model
 
                 };
                 //Add the book to the collection of books
-                context.AirsoftModel.Add(mk23);
+                context.AirsoftModels.Add(mk23);
                 var ca870 = new AirsoftModel()
                 {
-                    name = "m4",
+                    name = "ca870",
                     type ="shotgun",
                     operatingsystem="spring",
                     propulsion = "spring",
                     Brand = GandP
                 };
-                context.AirsoftModel.Add(ca870);
+                context.AirsoftModels.Add(ca870);
                 //Save all the changes to the DB
                 context.SaveChanges();
             }

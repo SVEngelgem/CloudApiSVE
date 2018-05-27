@@ -9,6 +9,6 @@ namespace Model
         public string Name { get; set; }
 
         public string specialization {get; set;}
-        public ICollection<AirsoftModel> AirsoftModel {get;set;}
+        public ICollection<AirsoftModel> AirsoftModels {get;set;}
     }   
 }

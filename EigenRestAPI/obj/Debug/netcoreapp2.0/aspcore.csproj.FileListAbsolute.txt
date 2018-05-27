@@ -9,3 +9,14 @@ C:\Users\stijn\Documents\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\obj\De
 C:\Users\stijn\Documents\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\obj\Debug\netcoreapp2.0\aspcore.AssemblyInfo.cs
 C:\Users\stijn\Documents\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\obj\Debug\netcoreapp2.0\aspcore.dll
 C:\Users\stijn\Documents\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\obj\Debug\netcoreapp2.0\aspcore.pdb
+D:\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\bin\Debug\netcoreapp2.0\aspcore.deps.json
+D:\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\bin\Debug\netcoreapp2.0\aspcore.runtimeconfig.json
+D:\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\bin\Debug\netcoreapp2.0\aspcore.runtimeconfig.dev.json
+D:\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\bin\Debug\netcoreapp2.0\aspcore.dll
+D:\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\bin\Debug\netcoreapp2.0\aspcore.pdb
+D:\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\obj\Debug\netcoreapp2.0\aspcore.csprojAssemblyReference.cache
+D:\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\obj\Debug\netcoreapp2.0\aspcore.csproj.CoreCompileInputs.cache
+D:\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\obj\Debug\netcoreapp2.0\aspcore.AssemblyInfoInputs.cache
+D:\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\obj\Debug\netcoreapp2.0\aspcore.AssemblyInfo.cs
+D:\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\obj\Debug\netcoreapp2.0\aspcore.dll
+D:\ap-ict\3dejaar\CloudApi\CloudApiSVE\EigenRestAPI\obj\Debug\netcoreapp2.0\aspcore.pdb
