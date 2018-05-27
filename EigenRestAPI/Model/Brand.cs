@@ -9,6 +9,7 @@ namespace Model
         public string Name { get; set; }
 
         public string specialization {get; set;}
+        [JsonIgnore]
         public ICollection<AirsoftModel> AirsoftModels {get;set;}
     }   
 }

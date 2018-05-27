@@ -9,7 +9,7 @@ import { AgmCoreModule } from '@agm/core';
 import { RouterModule } from "@angular/router";
 //services
 import{ CountryService } from './services/country.service';
-import { ListAllComponent } from './list-all/list-all.component';
+import { AirsoftService } from './services/airsoft.service';
 //paging
 import { NgxPaginationModule } from "ngx-pagination";
 //components
@@ -17,6 +17,10 @@ import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { DetailddescriptionComponent } from './detailddescription/detailddescription.component';
+import { AirsoftModelDbComponent } from './airsoft-model-db/airsoft-model-db.component';
+import { ListAllComponent } from './list-all/list-all.component';
+import { AirsoftallComponent } from './airsoftall/airsoftall.component';
+import { AirsoftUpdateBtnComponent } from './airsoft-update-btn/airsoft-update-btn.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,10 @@ import { DetailddescriptionComponent } from './detailddescription/detailddescrip
     NavComponent,
     SearchComponent,
     ListAllComponent,
-    DetailddescriptionComponent
+    DetailddescriptionComponent,
+    AirsoftModelDbComponent,
+    AirsoftallComponent,
+    AirsoftUpdateBtnComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +45,7 @@ import { DetailddescriptionComponent } from './detailddescription/detailddescrip
       { path: 'home', component: HomeComponent},
       { path: 'search', component: SearchComponent},
       { path: 'detail', component: DetailddescriptionComponent},
+      { path: 'airsoft', component: AirsoftModelDbComponent},
       //de routes hier plaatsen per module component
       { path: '', redirectTo: 'home', pathMatch: 'full'}
     ], { useHash: true }),
@@ -46,7 +54,8 @@ import { DetailddescriptionComponent } from './detailddescription/detailddescrip
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
-    CountryService
+    CountryService,
+    AirsoftService
   ],
   bootstrap: [AppComponent]
 })

@@ -20,7 +20,7 @@ export class CountryService {
                 return result;
             })
             .catch(this.handleError);
-     }
+    }
      private handleErrorall(error: Response) {
         return Observable.throw(error.statusText);
     }

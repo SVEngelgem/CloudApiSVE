@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Model;
+using Microsoft.AspNetCore.Cors;
 
 namespace aspcore
 {
@@ -32,8 +33,9 @@ namespace aspcore
                 options => options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")
                 )
-            );    
+            );   
 
+            services.AddCors();
             services.AddMvc();
             services.AddCors();
         }
@@ -45,6 +47,11 @@ namespace aspcore
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors(builder =>
+            builder.WithOrigins("*")
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+            );
             app.UseMvc();
 
             DBIntitializer.Initialize(libContext);

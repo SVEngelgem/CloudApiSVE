@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="card" *ngIf="models">
+    <div class="card-header">HomePage</div>
+    <div class="card-block">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th >Type</th>
+                    <th >Operatingsystem</th>
+                    <th >Propulsion</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let model of models | paginate: { itemsPerPage: 10 , currentPage: p}">
+                    <td >{{model.name}}</td>
+                    <td >{{model.type}}</td>
+                    <td >{{model.operatingsystem}}</td>
+                    <td >{{model.propulsion}}</td>
+                </tr>
+            </tbody>
+            <pagination-controls class="myPagination" (pageChange)="p = $event "></pagination-controls>
+        </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="card" *ngIf="models">
+      <div class="card-header">HomePage</div>
+      <div class="card-block">
+          <table class="table table-hover">
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th >Specialization</th>
+                  </tr>
+              </thead>
+              <tbody >
+                  <tr *ngFor="let brand of brands | paginate: { itemsPerPage: 5 , currentPage: p}">
+                      <td >{{brand.name}}</td>
+                      <td >{{brand.specialization}}</td>
+                  </tr>
+              </tbody>
+              <pagination-controls class="myPagination" (pageChange)="p = $event "></pagination-controls>
+          </table>
+      </div>
+    </div>
+  </div>
