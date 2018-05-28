@@ -14,54 +14,8 @@ public class AirsoftModelsListController : Controller
         this.context = context;
     }
     [HttpGet]         // api/v1/Models
-    public List<AirsoftModel> GetAllAirsoftModels(string name, string type, string operationsystem, string propulsion, int? page, string sort, int length= 2, string dir = "asc")
-    {
-        IQueryable<AirsoftModel> query = context.AirsoftModels;
-
-        if (!string.IsNullOrWhiteSpace(name))
-            query = query.Where(d => d.name == name);
-        if (!string.IsNullOrWhiteSpace(type))
-            query = query.Where(d => d.type == type);
-        if (!string.IsNullOrWhiteSpace(operationsystem))
-            query = query.Where(d => d.operatingsystem == operationsystem);
-        if (!string.IsNullOrWhiteSpace(propulsion))
-            query = query.Where(d => d.propulsion == propulsion);
-        if (!string.IsNullOrWhiteSpace(sort))
-        {
-            switch (sort)
-            {
-                case "name":
-                    if (dir == "asc")
-                        query = query.OrderBy(d => d.name);
-                    else if (dir == "desc")
-                        query = query.OrderByDescending(d => d.name);
-                    break;
-                case "type":
-                    if (dir == "asc")
-                        query = query.OrderBy(d => d.type);
-                    else if (dir == "desc")
-                        query = query.OrderByDescending(d => d.type);
-                    break;
-                case "propulsion":
-                    if (dir == "asc")
-                        query = query.OrderBy(d => d.propulsion);
-                    else if (dir == "desc")
-                        query = query.OrderByDescending(d => d.propulsion);
-                    break;
-                case "operatingsystem":
-                    if (dir == "asc")
-                        query = query.OrderBy(d => d.operatingsystem);
-                    else if (dir == "desc")
-                        query = query.OrderByDescending(d => d.operatingsystem);
-                    break;
-            }
-        }
-
-        if (page.HasValue)
-            query = query.Skip(page.Value * length);
-        query = query.Take(length);
-
-        return query.ToList();
+    public List<AirsoftModel> GetAllAirsoftModels() {
+        return context.AirsoftModels.ToList();
     }
 
     [Route("{id}")]   // api/v1/Models/2
@@ -98,7 +52,7 @@ public class AirsoftModelsListController : Controller
         context.AirsoftModels.Add(newAirsoftModel);
         context.SaveChanges();
         // Stuur een result 201 met het boek als content
-        return Created("", newAirsoftModel);
+        return Created("a new airsoftmodel", newAirsoftModel);
     }
 
     [HttpPut]

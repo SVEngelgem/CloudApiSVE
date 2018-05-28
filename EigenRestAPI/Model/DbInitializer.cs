@@ -25,6 +25,12 @@ namespace Model
                     specialization="aeg"
                 };
                 context.Brands.Add(GandP);
+                var Krytac = new Brand()
+                {
+                    Name = "Krytac",
+                    specialization="aeg"
+                };
+                context.Brands.Add(Krytac);
 
                 //Create new book
                 var mk23 = new AirsoftModel()
@@ -33,6 +39,7 @@ namespace Model
                     type ="pistol",
                     operatingsystem="nbb",
                     propulsion = "gas",
+                    BrandId = 1,
                     Brand = TokyoMarui
 
                 };
@@ -44,6 +51,7 @@ namespace Model
                     type ="shotgun",
                     operatingsystem="spring",
                     propulsion = "spring",
+                    BrandId = 2,
                     Brand = GandP
                 };
                 context.AirsoftModels.Add(ca870);

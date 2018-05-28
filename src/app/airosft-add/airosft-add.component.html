@@ -1,6 +1,6 @@
 <div class="container">
     <form>
-  <p class="h4 text-center mb-4">Write to us</p>
+  <p class="h4 text-center mb-4">Add a new model to the list</p>
 
   <!-- Default input name -->
   <label for="defaultFormContactNameEx" class="grey-text" >Name of the model</label>
@@ -42,14 +42,13 @@
     <br>
 
     <label for="defaultFormContactSubjectEx" class="grey-text">Propulsionstyle</label>
-    <form action="">
-        <input type="radio"name="1" [(ngModel)]="BrandId" value="1"> 1<br>
-        <input type="radio"name="2" [(ngModel)]="BrandId" value="2"> 2
+    <form *ngFor= "let brand of brands" action="">
+        <input type="radio"name="brand.specialization" [(ngModel)]="BrandId" value="brand.name"> {{brand.name}}<br>
       </form>
 
   
   <div class="text-center mt-4">
-      <button (click)="OnCheck()"class="btn btn-outline-warning" type="submit">Send<i class="fa fa-paper-plane-o ml-2"></i></button>
+      <button (click)="OnCheck()"class="btn btn-outline-warning" type="button">Send<i class="fa fa-paper-plane-o ml-2"></i></button>
   </div>
 </form>
 </div>

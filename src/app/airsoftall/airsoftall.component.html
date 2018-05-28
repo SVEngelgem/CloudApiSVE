@@ -12,14 +12,14 @@
                 </tr>
             </thead>
             <tbody >
-                <tr *ngFor="let model of models | paginate: { itemsPerPage: 10 , currentPage: p}">
+                <tr *ngFor="let model of models | paginate: { itemsPerPage: 5 , currentPage: p1 , id:'first'}">
                     <td >{{model.name}}</td>
                     <td >{{model.type}}</td>
                     <td >{{model.operatingsystem}}</td>
                     <td >{{model.propulsion}}</td>
                 </tr>
             </tbody>
-            <pagination-controls class="myPagination" (pageChange)="p = $event "></pagination-controls>
+            <pagination-controls class="myPagination" (pageChange)="p1 = $event " id="first"></pagination-controls>
         </table>
     </div>
   </div>
@@ -36,12 +36,12 @@
                   </tr>
               </thead>
               <tbody >
-                  <tr *ngFor="let brand of brands | paginate: { itemsPerPage: 5 , currentPage: p}">
+                  <tr *ngFor="let brand of brands | paginate: { itemsPerPage: 5 , currentPage: p2, id:'second'}">
                       <td >{{brand.name}}</td>
                       <td >{{brand.specialization}}</td>
                   </tr>
               </tbody>
-              <pagination-controls class="myPagination" (pageChange)="p = $event "></pagination-controls>
+              <pagination-controls class="myPagination" (pageChange)="p2 = $event " id="second"></pagination-controls>
           </table>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Type } from '@angular/core';
-import { AirsoftService } from '../services/airsoft.service';
+import { AirsoftService , IBrand , RootModel } from '../services/airsoft.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,16 +18,21 @@ export class AirosftAddComponent implements OnInit {
   public Propulsiondata: String = "";
   public NameInput:String = "";
   public BrandId: number;
-  constructor(private _service: AirsoftService, private router :Router) { }
+  brands: IBrand;
+
+  constructor(private _service: AirsoftService, private router :Router) {
+
+  }
 
   ngOnInit() {
     this.TypeData;
     this.OSdata;
     this.Propulsiondata;
     this.NameInput;
-    this.BrandId
+    this.BrandId;
+    this.GetAllBrands();
   }
-  public SavenewModel(): void{
+  public SaveNewModel(): void{
     this._service.PostModel(this.name,this.type,this.operatingsystem,this.propulsion, this.BrandId)
       .subscribe(
       )
@@ -43,8 +48,16 @@ export class AirosftAddComponent implements OnInit {
     console.log(this.OSdata);
     console.log(this.Propulsiondata);
     console.log(this.BrandId)
-    this.SavenewModel();
-    this.router.navigate(['airsoft'])
+    this.SaveNewModel();
+    this.router.navigate(['/airsoft'])
   }
-
+  GetAllBrands(): void{
+    this._service.GetAllBrands()
+      .subscribe(
+        result => this.brands = result,
+        error => console.log("Error :: "+ error),
+        
+      )
+  }
 }
+
