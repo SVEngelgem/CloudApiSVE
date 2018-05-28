@@ -40,9 +40,9 @@ export class AirsoftService {
     return Observable.throw(error.statusText);
   }
   }
-  PostModel(name, type, operatingsystem, propulsion):Observable<RootModel>{
+  PostModel(name, type, operatingsystem, propulsion, BrandId):Observable<RootModel>{
     return this.http
-      .post(this._airsoftURL+"Models",{name, type, operatingsystem, propulsion})
+      .post(this._airsoftURL+"Models",{name, type, operatingsystem, propulsion, BrandId})
       .map((response: Response) => {
         var result = <RootModel>response.json();
         console.log(result);
@@ -68,5 +68,6 @@ export interface RootModel {
   type: string;
   operatingsystem: string;
   propulsion: string;
+  BrandId: number;
   brand: IBrand;
 }

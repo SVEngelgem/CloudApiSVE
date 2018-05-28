@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AirsoftService } from '../services/airsoft.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-airsoft-update-btn',
@@ -7,20 +8,10 @@ import { AirsoftService } from '../services/airsoft.service';
   styleUrls: ['./airsoft-update-btn.component.scss']
 })
 export class AirsoftUpdateBtnComponent implements OnInit {
-  name: String;
-  type: String;
-  operatingsystem: String;
-  propulsion:string;
 
-  constructor(private _service: AirsoftService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-  public SavenewModel(): void{
-    this._service.PostModel(this.name,this.type,this.operatingsystem,this.propulsion)
-      .subscribe(
-        res => this.
-      )
   }
 
 }

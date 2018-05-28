@@ -112,6 +112,7 @@ public class AirsoftModelsListController : Controller
         orgAirsoftmodel.type = UpdateAirsoftModel.type;
         orgAirsoftmodel.operatingsystem = UpdateAirsoftModel.operatingsystem;
         orgAirsoftmodel.propulsion = UpdateAirsoftModel.propulsion;
+        orgAirsoftmodel.BrandId = UpdateAirsoftModel.BrandId;
 
         context.SaveChanges();
         return Ok(orgAirsoftmodel);

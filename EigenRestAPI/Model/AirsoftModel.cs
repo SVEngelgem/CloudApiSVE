@@ -10,6 +10,7 @@ namespace Model
         public string type {get; set;}
         public string operatingsystem {get; set;}
         public string propulsion{get; set;}
+        public int BrandId{get;set;}
         public Brand Brand {get; set;}
     }   
 }

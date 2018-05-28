@@ -48,9 +48,10 @@ namespace aspcore
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors(builder =>
-            builder.WithOrigins("*")
+            builder
                 .AllowAnyOrigin()
                 .AllowAnyHeader()
+                .AllowAnyMethod()
             );
             app.UseMvc();
 

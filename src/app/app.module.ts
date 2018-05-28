@@ -21,6 +21,8 @@ import { AirsoftModelDbComponent } from './airsoft-model-db/airsoft-model-db.com
 import { ListAllComponent } from './list-all/list-all.component';
 import { AirsoftallComponent } from './airsoftall/airsoftall.component';
 import { AirsoftUpdateBtnComponent } from './airsoft-update-btn/airsoft-update-btn.component';
+import { AirosftAddComponent } from './airosft-add/airosft-add.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { AirsoftUpdateBtnComponent } from './airsoft-update-btn/airsoft-update-b
     DetailddescriptionComponent,
     AirsoftModelDbComponent,
     AirsoftallComponent,
-    AirsoftUpdateBtnComponent
+    AirsoftUpdateBtnComponent,
+    AirosftAddComponent
   ],
   imports: [
     BrowserModule,
@@ -46,11 +49,13 @@ import { AirsoftUpdateBtnComponent } from './airsoft-update-btn/airsoft-update-b
       { path: 'search', component: SearchComponent},
       { path: 'detail', component: DetailddescriptionComponent},
       { path: 'airsoft', component: AirsoftModelDbComponent},
+      { path: 'addairsoft', component: AirosftAddComponent},
       //de routes hier plaatsen per module component
       { path: '', redirectTo: 'home', pathMatch: 'full'}
     ], { useHash: true }),
     HttpModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
