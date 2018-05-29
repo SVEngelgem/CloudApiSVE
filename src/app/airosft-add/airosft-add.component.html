@@ -41,9 +41,9 @@
     </form>
     <br>
 
-    <label for="defaultFormContactSubjectEx" class="grey-text">Propulsionstyle</label>
+    <label for="defaultFormContactSubjectEx" class="grey-text">Brand</label>
     <form *ngFor= "let brand of brands" action="">
-        <input type="radio"name="brand.specialization" [(ngModel)]="BrandId" value="brand.name"> {{brand.name}}<br>
+        <input type="radio" name="first" [(ngModel)]="BrandId" [value]="brand.id"> {{brand.name}}<br>
       </form>
 
   
