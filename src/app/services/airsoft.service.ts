@@ -54,6 +54,20 @@ export class AirsoftService {
     return Observable.throw(error.statusText);
   }
 }
+PostBrand(name, specialization):Observable<RootModel>{
+  return this.http
+    .post(this._airsoftURL+"Brands",{name, specialization})
+    .map((response: Response) => {
+      var result = <RootModel>response.json();
+      console.log(result);
+      return result;
+  })
+  .catch(this.handleErrorBrandPost);
+}
+private handleErrorBrandPost(error: Response){{
+  return Observable.throw(error.statusText);
+}
+}
 
 }
 export interface IBrand {

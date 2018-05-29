@@ -23,6 +23,7 @@ import { AirsoftallComponent } from './airsoftall/airsoftall.component';
 import { AirsoftUpdateBtnComponent } from './airsoft-update-btn/airsoft-update-btn.component';
 import { AirosftAddComponent } from './airosft-add/airosft-add.component';
 import { FormsModule } from '@angular/forms';
+import { AirsoftAddBrandComponent } from './airsoft-add-brand/airsoft-add-brand.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     AirsoftModelDbComponent,
     AirsoftallComponent,
     AirsoftUpdateBtnComponent,
-    AirosftAddComponent
+    AirosftAddComponent,
+    AirsoftAddBrandComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { FormsModule } from '@angular/forms';
       { path: 'search', component: SearchComponent},
       { path: 'detail', component: DetailddescriptionComponent},
       { path: 'airsoft', component: AirsoftModelDbComponent},
-      { path: 'addairsoft', component: AirosftAddComponent},
+      { path: 'addairsoftmodel', component: AirosftAddComponent},
+      { path: 'addairsoftbrand', component: AirsoftAddBrandComponent},
       //de routes hier plaatsen per module component
       { path: '', redirectTo: 'home', pathMatch: 'full'}
     ], { useHash: true }),

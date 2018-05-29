@@ -1,0 +1,18 @@
+<div class="container">
+    <form>
+  <p class="h4 text-center mb-4">Add a new Brand to the list</p>
+
+  <!-- Default input name -->
+  <label for="defaultFormContactNameEx" class="grey-text" >Name of the Brand</label>
+  <input type="text" name="1" [(ngModel)]="NameInput" placeholder="Brand name" class="form-control">
+  
+  <br>
+  <label for="defaultFormContactNameEx" class="grey-text" >specialization</label>
+  <input type="text" name="1" [(ngModel)]="SpeciInput" placeholder="Specialization" class="form-control">
+  
+  
+  <div class="text-center mt-4">
+      <button (click)="OnCheck()"class="btn btn-outline-warning" type="button">Send<i class="fa fa-paper-plane-o ml-2"></i></button>
+  </div>
+</form>
+</div>
